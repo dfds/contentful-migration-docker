@@ -11,7 +11,7 @@ To run the Docker image locally or in a build pipeline, Docker is required.
 In order to pull the image, run:
 
 ```
-docker push dfdsdk/contentful-migration:tagname
+docker pull dfdsdk/contentful-migration:tagname
 ```
 Replace tagname with the release number of the release you wish to pull.
 Releases can be found on [Docker Hub](https://hub.docker.com/r/dfdsdk/contentful-migration/tags).
