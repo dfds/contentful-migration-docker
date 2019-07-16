@@ -35,7 +35,7 @@ docker run -it -v C:\Code\ops\migration:/migration -w="/migration" contentful-mi
 
 Apply the new content type "my-new-type" in the target space staging:
 ```
-docker run -it -v C:\Code\ops\migration:/migration -w="/migration" contentful-migration:latest ts-node dfdsMigrate.ts --space-id=xxxxxx --environment-id=staging --management-token=xxxxxxxxxxxx
+docker run -it -v C:\Code\ops\migration:/migration -w="/migration" contentful-migration:latest dfdsMigrate.ts --space-id=xxxxxx --environment-id=staging --management-token=xxxxxxxxxxxx
 ```
 
 ## Contributing
