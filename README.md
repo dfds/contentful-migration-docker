@@ -30,12 +30,19 @@ Running the docker:
 
 Create the diff file for new content type "my-new-type" created in dev space:
 ```
-docker run -it -v C:\Code\ops\migration:/migration -w="/migration" contentful-migration:latest autoMigrateContentType.ts --space-id=xxxxxx --environment-id=dev --id=myNewType --management-token=xxxxxxxxxxxx
+docker run -it -v C:\Repos\migration_tool\:/migration -e CONTENTFUL_SPACE_ID=xxxxxxxxxxx -e ENVIRONMENT_ID=dev -w="/migration" --entrypoint "/bin/bash" contentful-migration:latest create-migration.sh --ct_type_id=my-new-type --mgmnt_token=xxxxxxxxxxxx
 ```
 
 Apply the new content type "my-new-type" in the target space staging:
 ```
-docker run -it -v C:\Code\ops\migration:/migration -w="/migration" contentful-migration:latest dfdsMigrate.ts --space-id=xxxxxx --environment-id=staging --management-token=xxxxxxxxxxxx
+docker run -it -v  C:\Repos\migration_tool\:/migration -e CONTENTFUL_SPACE_ID=xxxxxxxxxxx -w="/migration" --entrypoint "/bin/bash" contentful-migration:latest apply-migrations.sh --env_id=test --mgmnt_token=xxxxxxxxxxxx
+```
+## Debugging
+
+When troubleshooting Docker image layers, it can be useful to run a particular layer of the image (e.g. just before a step fails):
+
+```console
+docker run -it <layer> bash
 ```
 
 ## Contributing
