@@ -30,12 +30,12 @@ Running the docker:
 
 Create the diff file for new content type "my-new-type" created in dev space:
 ```
-docker run -it -v C:\Repos\migration_tool\:/migration -e CONTENTFUL_SPACE_ID=xxxxxxxxxxx -e ENVIRONMENT_ID=dev -w="/migration" --entrypoint "/bin/bash" contentful-migration:latest create-migration.sh --ct_type_id=my-new-type --mgmnt_token=xxxxxxxxxxxx
+docker run -it -v C:\Repos\migration_tool\:/migration -e CONTENTFUL_SPACE_ID=xxxxxxxxxxx -e ENVIRONMENT_ID=dev -w="/migration" --entrypoint "/bin/bash" dfdsdk/contentful-migration:latest create-migration.sh --ct_type_id=my-new-type --mgmnt_token=xxxxxxxxxxxx
 ```
 
 Apply the new content type "my-new-type" in the target space staging:
 ```
-docker run -it -v  C:\Repos\migration_tool\:/migration -e CONTENTFUL_SPACE_ID=xxxxxxxxxxx -w="/migration" --entrypoint "/bin/bash" contentful-migration:latest apply-migrations.sh --env_id=test --mgmnt_token=xxxxxxxxxxxx
+docker run -it -v  C:\Repos\migration_tool\:/migration -e CONTENTFUL_SPACE_ID=xxxxxxxxxxx -w="/migration" --entrypoint "/bin/bash" dfdsdk/contentful-migration:latest apply-migrations.sh --env_id=test --mgmnt_token=xxxxxxxxxxxx
 ```
 ## Debugging
 
